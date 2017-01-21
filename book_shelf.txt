@@ -1,0 +1,37 @@
+C++ Struct Problem
+===================
+In programing, we can define 'objects' that exist in our programming 
+world. For example, we can say something like: There are things 
+called cars, and they have a price, a license plate #, and model. Then, 
+you can add properties like car.price, car.plate, car.model, etc. 
+
+* Read about struct: 
+http://www.cplusplus.com/doc/tutorial/structures/
+
+* Read about random numbers: 
+http://www.cplusplus.com/reference/cstdlib/rand/
+
+* Make a struct object to describe a book: 
+At a minimum, a book should have: author, genre, title. 
+
+* Make a program that stores an array of books. We will treat the array 
+like a book shelf. You should be able to: 
+1. Add a book
+2. Take a book
+3. Take a random book.
+4. Search for book. 
+5. Quit
+
+
+
+* Explanation of different functions
+1. Will ask user for author/genre/title, and put book into an open
+spot on the 'shelf'. Should tell user what spot it got put into. 
+2. Will ask user for which spot on the book shelf they want to take book. 
+3. Should use random number to choose which book to remove from shelf.
+4. Will ask user for either title, year, or author. User then types it 
+in, and program searches. It should reveal partial matches!!! I.E. 
+If user searches by title, and types in "lord" book shelf should 
+say it has "lord of the rings" in spot 5 and "lord of the flies" in 
+spot 7. It should give ALL information for every match it finds. 
+5. Quit
