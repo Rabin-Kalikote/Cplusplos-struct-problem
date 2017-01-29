@@ -24,6 +24,7 @@ void addbook();
 void takebook();
 void takerandombook();
 void searchbook();
+void deleteBook(int takespot);
 
 //Creating array to hold books.
 mybook bookshelf[10];
@@ -75,7 +76,7 @@ int main (){
 		}
 		
 	else{
-		cout << endl << "Invalid choice" <<endl;
+		cout << endl << " Invalid choice" <<endl;
 		}
 		
 	cout <<endl << " Press 1 to continue: ";
@@ -97,7 +98,6 @@ void menu(){
 
 void addbook(){
 	system("CLS");
-
 	mybook addbook;
 	cout << endl << " Add the title: ";
 	cin >> addbook.title;
@@ -117,13 +117,16 @@ void addbook(){
 			bookshelf[i].author = addbook.author;
 			bookshelf[i].type = addbook.type;
 			bookshelf[i].price = addbook.price;
+			cout << endl <<" Book is added to (" << i << ") spot." << endl;
 			break;  // Once it gets the empty spot, it stores and breaks.
 		}
 		else{
 		}
 		i = i+1;
 	}
-	cout << endl <<" Book is added to (" << i << ") spot." << endl;
+	if(i==10){
+		cout << endl << " Sorry.. Bookshelf is full!" << endl;	
+	}
 } 
 
 void takebook(){
@@ -133,10 +136,7 @@ void takebook(){
 	cout << endl << " Which spot contain the book that you wanna take? ";
 	cin >> takespot;
 	if (bookshelf[takespot].title != ""){
-		bookshelf[takespot].title = "";
-		bookshelf[takespot].author = "";
-		bookshelf[takespot].type = "";
-		bookshelf[takespot].price = 0;
+		deleteBook(takespot); // calls the function that take book.
 		cout << endl << " Book from spot "<< takespot << " is removed." << endl;
 	}
 	else{
@@ -148,17 +148,13 @@ void takerandombook(){
 	system("CLS");
 			
 			srand (time(NULL));
-			int RandIndex = rand() % 9 + 1;
+			int takespot = rand() % 9 + 1;
 			
-			cout << endl << " Generated random number is (" << RandIndex << ")." << endl;
+			cout << endl << " Generated random number is (" << takespot << ")." << endl;
 			
-		if (bookshelf[RandIndex].title != "") {
-			bookshelf[RandIndex].title = "";
-			bookshelf[RandIndex].author = "";
-			bookshelf[RandIndex].type = "";
-			bookshelf[RandIndex].price = 0;
-			
-			cout << endl << " Book from spot "<< RandIndex << " is removed." << endl;
+		if (bookshelf[takespot].title != "") {
+			deleteBook(takespot); // calls the function that take book.
+			cout << endl << " Book from spot "<< takespot << " is removed." << endl;
 		}
 		else{
 			cout << endl << " Spots selected by random numbers is empty! " << endl;
@@ -219,6 +215,14 @@ void searchbook(){
 			cout << " Sorry! No matches found. " << endl;
 		}
 }
+
+void deleteBook(int takespot){
+	bookshelf[takespot].title = "";
+	bookshelf[takespot].author = "";
+	bookshelf[takespot].type = "";
+	bookshelf[takespot].price = 0;
+}
+
 
 
 
